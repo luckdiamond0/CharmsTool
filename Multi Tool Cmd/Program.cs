@@ -37,10 +37,14 @@ namespace Multi_Tool_Cmd
             {
                 key.DeleteValue(appName);
             }
-            else
-            {
-                Console.WriteLine($"O aplicativo '{appName}' não está no Startup.");
-            }
+        }
+
+        static string GetBindForMultiAppPath()
+        {
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string appPath = System.IO.Path.Combine(currentDirectory, "bindFormulti.exe");
+
+            return appPath;
         }
 
         static void AddToStartup(string appName, string appPath)
@@ -57,17 +61,17 @@ namespace Multi_Tool_Cmd
             // Assuming you want to use the first Settings item
             Settingsfor currentSettings = Settings[0];
 
+            string appName = "bindFormulti";
+            string appPath = GetBindForMultiAppPath();
+
             if (currentSettings.Startup)
             {
-                string appName = "bindFormulti";
-                string appPath = Assembly.GetExecutingAssembly().Location;
-
                 //Add app to startup
                 AddToStartup(appName, appPath);
             }
             if (!currentSettings.Startup)
             {
-                RemoveFromStartup("bindFormulti");
+                RemoveFromStartup(appName);
             }
 
             Console.Title = "Multi Tool Cmd";
