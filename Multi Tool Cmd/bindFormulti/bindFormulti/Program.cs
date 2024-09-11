@@ -13,7 +13,7 @@ class Program
 
     static void Main()
     {
-        string Mult = "Multi Tool.exe";
+        string Mult = "Multi Tool Cmd.exe";
 
         while (true)
         {
