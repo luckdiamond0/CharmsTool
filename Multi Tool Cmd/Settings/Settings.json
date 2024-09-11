@@ -1,0 +1,18 @@
+﻿[
+  {
+    "_comment": "If you want change option, change the Apps not Option1... ",
+    "_stylecomment": "1 = 1,2,3,7 in left side and, 4,5,6 in right side",
+    "_stylecomment1": "2 = 1,2,3,4,5,6,7 alls together",
+    "_stylecomment3": "3 = none",
+    "_comment3": "if you already learn you can delete this commets",
+    "Option1": "Charmpad",
+    "Option2": "App1",
+    "Option3": "App2",
+    "Option4": "App3",
+    "Option5": "App4",
+    "Option6": "App5",
+    "Style": 1,
+    "_comment4": "if you want to Change Color is 1 for Magenta, 2 for Cyan, 3 for Red, 4 for Green and 5 for White",
+    "Color": 1
+  }
+]
