@@ -13,6 +13,7 @@
     "Option6": "App5",
     "Style": 1,
     "_comment4": "if you want to Change Color is 1 for Magenta, 2 for Cyan, 3 for Red, 4 for Green and 5 for White",
-    "Color": 1
+    "Color": 1,
+    "Startup": false
   }
 ]

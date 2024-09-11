@@ -18,6 +18,7 @@ namespace Multi_Tool_Cmd
         public string Option6 { get; set; }
         public int Style { get; set; }
         public int Color { get; set; }
+        public bool Startup { get; set; }
 
     }
 }

@@ -3,6 +3,8 @@ using System.Threading;
 using System.IO;
 using System.Diagnostics;
 using System.Text.Json;
+using Microsoft.Win32;
+using System.Reflection;
 
 namespace Multi_Tool_Cmd
 {
@@ -26,12 +28,47 @@ namespace Multi_Tool_Cmd
             }
         }
 
+        static void RemoveFromStartup(string appName)
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+
+            // Remove the key with appname
+            if (key.GetValue(appName) != null)
+            {
+                key.DeleteValue(appName);
+            }
+            else
+            {
+                Console.WriteLine($"O aplicativo '{appName}' não está no Startup.");
+            }
+        }
+
+        static void AddToStartup(string appName, string appPath)
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+
+            key.SetValue(appName, appPath);
+        }
+
         static int MainMenu()
         {
             LoadSettings();
 
             // Assuming you want to use the first Settings item
             Settingsfor currentSettings = Settings[0];
+
+            if (currentSettings.Startup)
+            {
+                string appName = "bindFormulti";
+                string appPath = Assembly.GetExecutingAssembly().Location;
+
+                //Add app to startup
+                AddToStartup(appName, appPath);
+            }
+            if (!currentSettings.Startup)
+            {
+                RemoveFromStartup("bindFormulti");
+            }
 
             Console.Title = "Multi Tool Cmd";
 
@@ -184,7 +221,7 @@ namespace Multi_Tool_Cmd
             bool settingson = false; // Turn On or turn off mainmenu
 
             while (true)
-            {
+            { 
                 if (!settingson)
                 {
                     Console.Clear();
