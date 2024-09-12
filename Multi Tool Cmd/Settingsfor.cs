@@ -16,6 +16,12 @@ namespace Multi_Tool_Cmd
         public string Option4 { get; set; }
         public string Option5 { get; set; }
         public string Option6 { get; set; }
+        public string ExeLocation1 { get; set; }
+        public string ExeLocation2 { get; set; }
+        public string ExeLocation3 { get; set; }
+        public string ExeLocation4 { get; set; }
+        public string ExeLocation5 { get; set; }
+        public string ExeLocation6 { get; set; }
         public int Style { get; set; }
         public int Color { get; set; }
         public bool Startup { get; set; }
