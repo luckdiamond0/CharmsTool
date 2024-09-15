@@ -471,7 +471,7 @@ namespace Multi_Tool_Cmd
                     $"Option (3): {currentSettings.Option3}",
                     $"Option (4): {currentSettings.Option4}",
                     $"Option (5): {currentSettings.Option5}",
-                    $"Option (3): {currentSettings.Option3}",
+                    $"Option (6): {currentSettings.Option6}",
                     $"Option (7): Settings"
                 };
             }
